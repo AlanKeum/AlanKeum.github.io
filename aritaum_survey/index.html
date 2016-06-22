@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>ARITAUM Survey</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.9/angular.js" data-semver="1.4.9"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  
+  <!-- START survey-container -->
+  <div class="survey-container panel panel-default container" ng-app="surveyApp" ng-controller="mainCtrl">
+
+    <!-- Start Page ======================================================== -->
+    <div class="servey-start panel-body" ng-show="page == 0">
+      <div class="hovereffect">
+        <img ng-src="https://pixabay.com/static/uploads/photo/2015/09/20/08/05/change-948020_960_720.jpg" class="img-responsive img-rounded">
+        <div class="overlay">
+          <h2> 설문조사의 내용은 블라블라 </h2>
+          <a class="info" href="#" ng-click="getNextPage()">설문 시작</a>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Surver Page ======================================================= -->
+    <div class="servey-page panel-body" ng-show="page > 0">
+      <div class="row">
+        <div class="col-xs-6 col-md-6">
+          <img ng-src="http://www.aagga.com/wp-content/uploads/2016/02/Sample.jpg" class="img-responsive img-thumbnail" ng-click="setAnswer('1')">
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <img ng-src="http://www.aagga.com/wp-content/uploads/2016/02/Sample.jpg" class="img-responsive img-thumbnail" ng-click="setAnswer('2')">
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <img ng-src="http://www.aagga.com/wp-content/uploads/2016/02/Sample.jpg" class="img-responsive img-thumbnail" ng-click="setAnswer('3')">
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <img ng-src="http://www.aagga.com/wp-content/uploads/2016/02/Sample.jpg" class="img-responsive img-thumbnail" ng-click="setAnswer('4')">
+        </div>
+      </div> 
+      
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{progressRate}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progressRate}}%;">
+          {{progressRate}}%
+        </div>
+      </div>
+    </div>
+
+    <!-- End Page ========================================================== -->
+    <div class="servey-result panel-body" ng-show="page == -1">
+      <img ng-src="http://i.imgur.com/vkW3Lhe.jpg" class="img-responsive img-rounded">
+      
+      <button type="button" class="btn btn-default quickbtn" aria-label="Left Align" ng-click="retry()">
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+      </button>
+      <span class="servey-answer label label-info">응답: {{answer}}</span>
+    </div>
+
+  </div>
+  <!-- END survey-container -->
+
+</body>
+
+</html>
