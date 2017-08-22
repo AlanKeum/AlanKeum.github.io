@@ -1,5 +1,15 @@
 <html>
 <body>
-<input type="file" accept="image/*" capture="camera"> 
+        <script>
+            $(function(){
+                $('#camera').change(function(e){
+                    $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+                });
+            });
+        </script>
+        <input type="file" id="camera" name="camera" capture="camera" accept="image/*" />
+        <br/>
+        <img id="pic" style="width:100%;" />
+
 </body>
 </html>
