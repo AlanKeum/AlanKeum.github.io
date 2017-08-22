@@ -1,6 +1,8 @@
 <html>
-<body>
-<script>
+<head>
+    <title>dnd binary upload</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript">
 function handleFiles(files) {
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
@@ -20,7 +22,9 @@ function handleFiles(files) {
     reader.readAsDataURL(file);
   }
 }
-</script>
+    </script>
+</head>
+<body>
 <input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
 <a href="#" id="fileSelect">Select some files</a> 
 <div id="fileList">
